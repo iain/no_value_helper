@@ -1,0 +1,54 @@
+h1. NoValueHelper
+
+h2. The Problem
+
+This Ruby on Rails plugin tries to solve a common pattern when displaying
+values from the database. If you want to display a nice message like 'no value'
+when an optional attribute has been left empty, you usually need to do the
+same thing over and over again:
+
+  <%= @user.name.blank? ? 'no value' : @user.name %>
+
+It gets even worse when it's about an optional relation, with some extra methods:
+
+  <%= @user.daddy ? link_to(@user.daddy.name, @user.daddy) : 'no daddy' %>
+
+h2. The Solution
+
+So this plugin tries to shorten this:
+
+  <%= display(@user.name) %>
+
+Or the second example:
+
+  <%= display(:link_to, @user.daddy) { @user.daddy.name } %>
+
+For the exact usage, read the specs!
+
+h2. Configuration
+
+To translate the message, you can simply add the "no_value" key (no scope) to
+your translation files.
+
+  nl-NL:
+    no_value: geen waarde
+
+By default the message is encapsulated by an <em>-tag with the class 'no_value'.
+To change this, set the class variable @@no_value_text with a lambda, say in
+your application helper:
+
+  module ApplicationHelper
+    @@no_value_text = lambda { "something more to your liking" }
+  end
+
+You can also change how this plugin checks for empty values. By default this is
+done with the method "blank?":http://apidock.com/rails/Object/blank%3F.
+This means that empty strings are also treated as 'no value'. To change this,
+set the class variable @@no_Value_check_method to a lambda that does what you
+want:
+
+  module ApplicationHelper
+    @@no_value_check_method = lambda { |value| value.nil? }
+  end
+
+Copyright (c) 2008 "Iain Hecker":http://iain.nl, released under the MIT license
