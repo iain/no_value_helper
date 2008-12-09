@@ -23,7 +23,7 @@ Or the second example:
 
   <%= display(:link_to, @user.daddy) { @user.daddy.name } %>
 
-For the exact usage, read the specs!
+For the exact usage, read the "specs":http://github.com/iain/no_value_helper/tree/master/spec/no_value_helper_spec.rb.
 
 h2. Configuration
 
