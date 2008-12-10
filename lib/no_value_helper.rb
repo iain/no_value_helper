@@ -3,7 +3,7 @@ module NoValueHelper
   @@no_value_text = lambda { %Q{<em class="no_value">#{I18n.t(:no_value, :default => "no value")}</em>} }
   @@no_value_check_method = lambda { |value| value.blank? }
 
-  def display(*args, &block)
+  def show(*args, &block)
     if block_given?
       value = yield
     else

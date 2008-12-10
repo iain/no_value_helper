@@ -2,8 +2,8 @@ h1. NoValueHelper
 
 h2. The Problem
 
-This Ruby on Rails plugin tries to solve a common pattern when displaying
-values from the database. If you want to display a nice message like 'no value'
+This Ruby on Rails plugin tries to solve a common pattern when showing
+values from the database. If you want to show a nice message like 'no value'
 when an optional attribute has been left empty, you usually need to do the
 same thing over and over again:
 
@@ -17,11 +17,11 @@ h2. The Solution
 
 So this plugin tries to shorten this:
 
-  <%= display(@user.name) %>
+  <%= show(@user.name) %>
 
 Or the second example:
 
-  <%= display(:link_to, @user.daddy) { @user.daddy.name } %>
+  <%= show(:link_to, @user.daddy) { @user.daddy.name } %>
 
 Don't worry, NoMethodErrors will be caught for you. That is why we use a block
 in this case.
