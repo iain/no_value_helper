@@ -23,6 +23,9 @@ Or the second example:
 
   <%= display(:link_to, @user.daddy) { @user.daddy.name } %>
 
+Don't worry, NoMethodErrors will be caught for you. That is why we use a block
+in this case.
+
 For the exact usage, read the "specs":http://github.com/iain/no_value_helper/tree/master/spec/no_value_helper_spec.rb.
 
 h2. Configuration
@@ -33,7 +36,7 @@ your translation files.
   nl-NL:
     no_value: geen waarde
 
-By default the message is encapsulated by an <em>-tag with the class 'no_value'.
+By default the message is encapsulated by an em-tag with the class 'no_value'.
 To change this, set the class variable @@no_value_text with a lambda, say in
 your application helper:
 
